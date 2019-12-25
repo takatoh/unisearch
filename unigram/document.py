@@ -21,3 +21,13 @@ def save_index(index, doc_id, index_dir):
         l = str(doc_id) + ':' + ','.join(list(map(lambda x: str(x), idx))) + '\n'
         with open(os.path.join(index_dir, str(ord(c)) + '.index'), 'a') as f:
             f.write(l)
+
+
+def parse_index(content):
+    l = content.split('\n')
+    l.pop()
+    index = {}
+    for l2 in l:
+        a = l2.split(':')
+        index[a[0]] = [int(x) for x in a[1].split(',')]
+    return index
