@@ -22,12 +22,9 @@ for file in index_files:
         index[c] = document.parse_index(f.read())
 
 m = list(map(lambda x: index[x], list(string)))
-#for x in m:
-#    print(x)
 
 for i in range(fcount):
     doc_id = str(i)
-#    print(doc_id)
     if not all(map(lambda x: doc_id in x.keys(), m)):
         continue
     n = list(map(lambda x: x[doc_id], m))
