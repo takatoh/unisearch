@@ -22,16 +22,20 @@ for file in index_files:
         index[c] = document.parse_index(f.read())
 
 m = list(map(lambda x: index[x], list(string)))
+#for x in m:
+#    print(x)
 
 for i in range(fcount):
     doc_id = str(i)
-    if not all(map(lambda x: doc_id in x, m)):
+#    print(doc_id)
+    if not all(map(lambda x: doc_id in x.keys(), m)):
         continue
     n = list(map(lambda x: x[doc_id], m))
     s = set(n[0])
     for s1 in n[1:]:
+        s = set(list(map(lambda x: x + 1, s)))
         s = s & set(s1)
     if len(s) > 0:
-        pos = list(s)
+        pos = list(map(lambda x: x - fcount + 1, s))
         pos.sort()
         print(docs[doc_id]['path'], pos)
