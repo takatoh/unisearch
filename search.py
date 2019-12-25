@@ -35,4 +35,4 @@ for i in range(fcount):
     if len(s) > 0:
         pos = list(map(lambda x: x - fcount + 1, s))
         pos.sort()
-        print(docs[doc_id]['path'], pos)
+        print(docs[doc_id]['name'], pos)
