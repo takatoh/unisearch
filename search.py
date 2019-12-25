@@ -33,6 +33,6 @@ for i in range(fcount):
         s = set(list(map(lambda x: x + 1, s)))
         s = s & set(s1)
     if len(s) > 0:
-        pos = list(map(lambda x: x - fcount + 1, s))
+        pos = list(map(lambda x: x - len(string) + 1, s))
         pos.sort()
         print(docs[doc_id]['name'], pos)
