@@ -1,3 +1,4 @@
 documents/
 indexes/
 __pycache__
+*.json
