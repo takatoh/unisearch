@@ -1,4 +1,4 @@
-from unigram import document
+from unigram import indexer
 import json
 import os
 import sys
@@ -25,9 +25,9 @@ def index(ctx):
     for file in files:
         with open(file, 'r') as f:
             text = f.read()
-            tokens = document.tokenize(text)
-            index = document.classify(tokens)
-            document.save_index(index, doc_id, INDEX_DIR)
+            tokens = indexer.tokenize(text)
+            index = indexer.classify(tokens)
+            indexer.save_index(index, doc_id, INDEX_DIR)
         docs[str(doc_id)] = {'name': os.path.basename(file), 'path': file}
         doc_id += 1
 
@@ -48,7 +48,7 @@ def search(ctx, string):
     for file in index_files:
         c = chr(int(os.path.basename(file).replace('.index', '')))
         with open(file, 'r') as f:
-            index[c] = document.parse_index(f.read())
+            index[c] = indexer.parse_index(f.read())
 
     m = list(map(lambda x: index[x], list(string)))
 
