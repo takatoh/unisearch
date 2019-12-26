@@ -48,7 +48,7 @@ def search(ctx, string):
     for file in index_files:
         c = chr(int(os.path.basename(file).replace('.index', '')))
         with open(file, 'r') as f:
-            index[c] = indexer.parse_index(f.read())
+            index[c] = indexer.parse(f.read())
 
     m = list(map(lambda x: index[x], list(string)))
 

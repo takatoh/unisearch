@@ -23,7 +23,7 @@ def save(index, doc_id, index_dir):
             f.write(l)
 
 
-def parse_index(content):
+def parse(content):
     l = content.split('\n')
     l.pop()
     index = {}
