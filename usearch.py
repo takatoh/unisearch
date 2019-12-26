@@ -27,7 +27,7 @@ def index(ctx):
             text = f.read()
             tokens = indexer.tokenize(text)
             index = indexer.classify(tokens)
-            indexer.save_index(index, doc_id, INDEX_DIR)
+            indexer.save(index, doc_id, INDEX_DIR)
         docs[str(doc_id)] = {'name': os.path.basename(file), 'path': file}
         doc_id += 1
 
