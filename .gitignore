@@ -2,3 +2,4 @@ documents/
 indexes/
 __pycache__
 *.json
+.python-version
