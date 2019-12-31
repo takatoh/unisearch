@@ -1,4 +1,4 @@
-import indexer
+from . import indexer
 import json
 import os
 import sys
