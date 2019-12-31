@@ -1,4 +1,4 @@
-from unigram import indexer
+import indexer
 import json
 import os
 import sys
