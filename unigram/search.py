@@ -16,6 +16,13 @@ def cmd(ctx):
     pass
 
 
+@cmd.command(help='Initialize.')
+@click.pass_context
+def init(ctx):
+    os.mkdir('documents')
+    os.mkdir('indexes')
+
+
 @cmd.command(help='Create indexes.')
 @click.pass_context
 def index(ctx):
